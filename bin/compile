@@ -201,7 +201,7 @@ deep-cp /app/.heroku/src $BUILD_DIR/.heroku/src
 invoke --version
 
 echo "staring bower"
-python -c 'import pty, sys; pty.spawn(sys.argv[1:])' | invoke create_settings  --settings-path wger/settings.py --database-path postgres://sroyqlgxuzlaxp:0b5c044cae19320626b7b3a20eabd574d84ddeca5736eb91c4854d9c668ff260@ec2-107-20-141-145.compute-1.amazonaws.com:5432/d7jteue0rso5dv --database-type postgresql 
+python -c 'import pty, sys; pty.spawn(sys.argv[1:])' | invoke create_settings  --settings-path wger/settings.py --database-path $DATABASE_URL --database-type postgresql 
 python -c 'import pty, sys; pty.spawn(sys.argv[1:])' | invoke bootstrap_wger --settings-path wger/settings.py --no-start-server 
 echo "done"
 
